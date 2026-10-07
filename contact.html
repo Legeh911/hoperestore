@@ -1,0 +1,1477 @@
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Contact | Hope Restored Counseling Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --sage: #5a7c5f;
+  --sage-light: #7a9f7f;
+  --sage-pale: #e8f0e9;
+  --sage-deep: #3a5c40;
+  --cream: #faf8f4;
+  --warm-white: #f5f2ec;
+  --warm-tan: #e8e0d0;
+  --charcoal: #2c2c2a;
+  --muted: #6b6b68;
+  --gold: #b08d5b;
+  --gold-light: #c9a97a;
+  --border: rgba(90,124,95,0.18);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Jost', sans-serif;
+  background: var(--cream);
+  color: var(--charcoal);
+  font-size: 16px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,248,244,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 200px;
+    height: 200px;
+  }
+
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--sage-deep);
+    line-height: 1.2;
+  }
+
+  .logo-text span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    font-family: 'Jost', sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--sage); }
+
+  .nav-cta {
+    background: var(--sage);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    letter-spacing: 0.1em;
+    font-size: 11px !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--sage-deep) !important; color: #fff !important; }
+
+
+/* ─── PAGE HEADER ─── */
+.page-header {
+  padding-top: 72px;
+  background: var(--sage-deep);
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  display: flex;
+  align-items: flex-end;
+}
+
+.page-header-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(90,124,95,0.35) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 60% at 10% 80%, rgba(176,141,91,0.12) 0%, transparent 60%);
+}
+
+.page-header-lines {
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgba(255,255,255,1) 0px,
+    rgba(255,255,255,1) 1px,
+    transparent 1px,
+    transparent 80px
+  );
+}
+
+.page-header-content {
+  position: relative;
+  padding: 4rem 5rem;
+  width: 100%;
+}
+
+.breadcrumb {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 1.25rem;
+  font-weight: 400;
+}
+
+.breadcrumb a { color: rgba(255,255,255,0.4); text-decoration: none; }
+.breadcrumb a:hover { color: var(--sage-light); }
+.breadcrumb span { margin: 0 0.6rem; }
+
+.page-header h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.1;
+  margin-bottom: 1rem;
+}
+
+.page-header h1 em {
+  font-style: italic;
+  color: var(--sage-light);
+}
+
+.page-header-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,0.55);
+  max-width: 520px;
+  line-height: 1.8;
+}
+
+.header-accent-line {
+  width: 48px;
+  height: 1px;
+  background: var(--gold);
+  margin: 1.25rem 0;
+}
+
+/* ─── MAIN CONTACT LAYOUT ─── */
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  min-height: 70vh;
+}
+
+/* ─── LEFT PANEL ─── */
+.contact-info-panel {
+  background: var(--warm-white);
+  padding: 5rem 4rem;
+  border-right: 0.5px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.info-block-label {
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info-block-label::after {
+  content: '';
+  flex: 1;
+  height: 0.5px;
+  background: var(--border);
+}
+
+.info-block h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: var(--charcoal);
+  margin-bottom: 0.5rem;
+}
+
+.info-block p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 0.5px solid var(--border);
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s;
+  cursor: default;
+}
+
+.contact-item:last-child { border-bottom: none; }
+
+.contact-item:is(a):hover .contact-item-icon {
+  background: var(--sage);
+}
+
+.contact-item:is(a):hover .contact-item-icon svg path,
+.contact-item:is(a):hover .contact-item-icon svg rect,
+.contact-item:is(a):hover .contact-item-icon svg circle,
+.contact-item:is(a):hover .contact-item-icon svg polyline,
+.contact-item:is(a):hover .contact-item-icon svg line {
+  stroke: #fff;
+}
+
+.contact-item-icon {
+  width: 40px;
+  height: 40px;
+  background: var(--sage-pale);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.2s;
+}
+
+.contact-item-text {
+  flex: 1;
+}
+
+.contact-item-type {
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.contact-item-value {
+  font-size: 14.5px;
+  color: var(--charcoal);
+  font-weight: 400;
+}
+
+.contact-item:is(a) .contact-item-value {
+  color: var(--sage-deep);
+}
+
+/* Availability badge */
+.availability-card {
+  background: var(--sage-pale);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  padding: 1.5rem;
+}
+
+.availability-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--sage-deep);
+  margin-bottom: 1rem;
+}
+
+.availability-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 0.5px solid rgba(90,124,95,0.12);
+  font-size: 13px;
+}
+
+.availability-row:last-child { border-bottom: none; }
+
+.availability-row .day { color: var(--muted); }
+.availability-row .time { color: var(--sage-deep); font-weight: 500; font-size: 12px; letter-spacing: 0.04em; }
+.availability-row .closed { color: rgba(107,107,104,0.45); font-style: italic; font-size: 12px; }
+
+.telehealth-note {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 0.5px solid var(--border);
+}
+
+.telehealth-dot {
+  width: 7px;
+  height: 7px;
+  background: var(--sage);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(90,124,95,0.4); }
+  50% { box-shadow: 0 0 0 6px rgba(90,124,95,0); }
+}
+
+.telehealth-note span {
+  font-size: 12px;
+  color: var(--muted);
+  font-style: italic;
+}
+
+/* States served */
+.states-served {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-top: 0.75rem;
+}
+
+.state-tag {
+  background: var(--cream);
+  border: 0.5px solid var(--border);
+  border-radius: 2px;
+  padding: 5px 12px;
+  font-size: 11.5px;
+  color: var(--sage-deep);
+  letter-spacing: 0.06em;
+  font-weight: 500;
+}
+
+/* ─── RIGHT PANEL — FORM ─── */
+.contact-form-panel {
+  background: var(--cream);
+  padding: 5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.form-intro {
+  margin-bottom: 3rem;
+}
+
+.form-intro .section-label {
+  font-size: 10.5px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.form-intro h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+  font-weight: 400;
+  color: var(--charcoal);
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.form-intro h2 em {
+  font-style: italic;
+  color: var(--sage);
+}
+
+.form-intro p {
+  font-size: 14.5px;
+  color: var(--muted);
+  line-height: 1.8;
+  max-width: 480px;
+}
+
+.form-intro p a {
+  color: var(--sage-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 3px;
+}
+
+/* Form grid */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group:last-of-type { margin-bottom: 0; }
+
+.form-row .form-group { margin-bottom: 0; }
+
+label {
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+input, textarea, select {
+  font-family: 'Jost', sans-serif;
+  font-size: 14.5px;
+  color: var(--charcoal);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--warm-tan);
+  padding: 0.85rem 0;
+  width: 100%;
+  outline: none;
+  transition: border-color 0.25s;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
+input::placeholder, textarea::placeholder { color: rgba(107,107,104,0.4); font-size: 14px; }
+
+input:focus, textarea:focus, select:focus {
+  border-bottom-color: var(--sage);
+}
+
+textarea {
+  resize: none;
+  min-height: 120px;
+  line-height: 1.7;
+}
+
+/* Custom select */
+.select-wrap {
+  position: relative;
+}
+
+.select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 5px solid var(--muted);
+  pointer-events: none;
+}
+
+select option { background: var(--cream); }
+
+/* Divider */
+.form-divider {
+  height: 0.5px;
+  background: var(--border);
+  margin: 0.5rem 0 2rem;
+}
+
+/* Consent */
+.consent-block {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+  margin-top: 0.5rem;
+}
+
+.consent-block input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  border: 1px solid var(--warm-tan);
+  border-radius: 2px;
+  background: transparent;
+  padding: 0;
+  margin-top: 3px;
+  cursor: pointer;
+  accent-color: var(--sage);
+}
+
+.consent-block label {
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--muted);
+  font-weight: 400;
+  line-height: 1.7;
+  cursor: pointer;
+}
+
+.consent-block label a {
+  color: var(--sage-deep);
+  text-decoration: underline;
+  text-decoration-thickness: 0.5px;
+  text-underline-offset: 2px;
+}
+
+/* Submit */
+.form-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.btn-submit {
+  background: var(--sage);
+  color: #fff;
+  border: none;
+  padding: 15px 40px;
+  border-radius: 2px;
+  font-family: 'Jost', sans-serif;
+  font-size: 11.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.btn-submit:hover { background: var(--sage-deep); transform: translateY(-1px); }
+.btn-submit:active { transform: translateY(0); }
+
+.btn-alt {
+  font-size: 12px;
+  color: var(--sage-deep);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-bottom: 1px solid var(--sage);
+  padding-bottom: 2px;
+  transition: color 0.2s;
+}
+
+.btn-alt:hover { color: var(--sage); }
+
+/* ─── SUCCESS STATE ─── */
+.success-message {
+  display: none;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 2.5rem;
+  background: var(--sage-pale);
+  border: 0.5px solid var(--border);
+  border-radius: 3px;
+  margin-top: 1rem;
+}
+
+.success-message.visible { display: flex; }
+
+.success-icon {
+  width: 44px;
+  height: 44px;
+  background: var(--sage);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.success-message h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: var(--sage-deep);
+}
+
+.success-message p {
+  font-size: 14px;
+  color: var(--muted);
+  line-height: 1.75;
+}
+
+/* ─── STRIP — APPOINTMENT CTA ─── */
+.appt-strip {
+  background: var(--charcoal);
+  padding: 4rem 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+}
+
+.appt-strip-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+  font-weight: 300;
+  color: #fff;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.appt-strip-text h3 em {
+  font-style: italic;
+  color: var(--sage-light);
+}
+
+.appt-strip-text p {
+  font-size: 14px;
+  color: rgba(255,255,255,0.45);
+}
+
+.appt-strip-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btn-primary-light {
+  background: var(--sage);
+  color: #fff;
+  text-decoration: none;
+  padding: 14px 30px;
+  border-radius: 2px;
+  font-size: 11.5px;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.btn-primary-light:hover { background: var(--sage-light); }
+
+.btn-ghost-light {
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  font-size: 11.5px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-bottom: 0.5px solid rgba(255,255,255,0.25);
+  padding-bottom: 2px;
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.btn-ghost-light:hover { color: rgba(255,255,255,0.85); }
+
+/* ─── FOOTER ─── */
+footer {
+  background: #232321;
+  color: rgba(255,255,255,0.6);
+  padding: 4rem 5rem 2.5rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer-brand .logo-text { color: #fff; }
+.footer-brand .logo-text span { color: rgba(255,255,255,0.35); }
+
+.footer-brand p {
+  margin-top: 1.25rem;
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.75;
+  max-width: 270px;
+}
+
+.footer-brand .contact-info {
+  margin-top: 1.5rem;
+  font-size: 13px;
+  color: rgba(255,255,255,0.45);
+  line-height: 2.1;
+}
+
+.footer-brand .contact-info a {
+  color: var(--sage-light);
+  text-decoration: none;
+}
+
+footer h4 {
+  font-size: 10.5px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 1.25rem;
+  font-weight: 500;
+}
+
+footer ul { list-style: none; display: flex; flex-direction: column; gap: 0.65rem; }
+
+footer ul a {
+  font-size: 13.5px;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+footer ul a:hover { color: var(--sage-light); }
+
+.footer-bottom {
+  grid-column: 1 / -1;
+  border-top: 0.5px solid rgba(255,255,255,0.08);
+  padding-top: 1.75rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11.5px;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.fade-up {
+  animation: fadeUp 0.7s ease both;
+}
+
+.fade-up-d1 { animation-delay: 0.1s; }
+.fade-up-d2 { animation-delay: 0.22s; }
+.fade-up-d3 { animation-delay: 0.34s; }
+.fade-up-d4 { animation-delay: 0.46s; }
+
+  /* ═══════════════════════════════════════════════════
+     SHARED RESPONSIVE SYSTEM — All breakpoints
+     ═══════════════════════════════════════════════════ */
+
+  /* ── Hamburger button (hidden on desktop) ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--charcoal, #2c2c2a);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile nav drawer */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0; right: 0;
+    background: rgba(250,248,244,0.99);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(90,124,95,0.18);
+    padding: 1.5rem 2rem 2rem;
+    z-index: 999;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+
+  .mobile-nav.open { display: flex; }
+
+  .mobile-nav a,
+  .mobile-nav button.mobile-nav-trigger {
+    display: block;
+    padding: 0.85rem 0;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal, #2c2c2a);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 0.5px solid rgba(90,124,95,0.12);
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align: left;
+    width: 100%;
+    font-family: inherit;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav button.mobile-nav-trigger:hover { color: #5a7c5f; }
+
+  .mobile-nav .mobile-nav-sub {
+    padding-left: 1rem;
+    display: none;
+  }
+
+  .mobile-nav .mobile-nav-sub.open { display: block; }
+
+  .mobile-nav .mobile-nav-sub a {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-weight: 400;
+    color: var(--muted, #6b6b68);
+    padding: 0.55rem 0;
+  }
+
+  .mobile-nav .mobile-cta {
+    margin-top: 1.5rem;
+    display: block;
+    background: #5a7c5f;
+    color: #fff !important;
+    text-align: center;
+    padding: 13px 24px;
+    border-radius: 2px;
+    font-size: 12px !important;
+    letter-spacing: 0.1em;
+    border-bottom: none !important;
+  }
+
+  /* ══════════════════════════════════════
+     LARGE DESKTOP  ≥ 1400px
+  ══════════════════════════════════════ */
+  @media (min-width: 1400px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .spec-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ══════════════════════════════════════
+     TABLET + SMALL LAPTOP  ≤ 1024px
+  ══════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    /* Nav */
+    .nav-links { display: none !important; }
+    .hamburger { display: flex; }
+
+    /* Hero / about split */
+    .about {
+      grid-template-columns: 1fr !important;
+    }
+    .about-image {
+      min-height: 380px;
+    }
+    .about-content {
+      padding: 4rem 3rem !important;
+    }
+
+    /* Services 2-col */
+    .services { padding: 5rem 3rem !important; }
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Spec grid 2-col */
+    .spec-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .specializations { padding: 5rem 3rem !important; }
+
+    /* Team highlight */
+    .team-highlight {
+      grid-template-columns: 1fr !important;
+    }
+    .team-image {
+      min-height: 340px;
+      order: -1;
+    }
+    .team-content {
+      padding: 4rem 3rem !important;
+    }
+
+    /* Footer */
+    footer {
+      grid-template-columns: 1fr 1fr !important;
+      padding: 4rem 3rem 2.5rem !important;
+    }
+    .footer-brand { grid-column: 1 / -1; }
+
+    /* Quote band */
+    .quote-band { padding: 3rem 3rem !important; }
+
+    /* Hero slider text */
+    .slide-content { padding: 0 5vw; padding-top: 72px; max-width: 640px; }
+
+    /* Page headers */
+    .page-header-content,
+    .page-hero-content { padding: 3rem !important; }
+
+    /* Contact body */
+    .contact-body { grid-template-columns: 1fr !important; }
+
+    /* Page split (book appointment) */
+    .page-split { grid-template-columns: 1fr !important; }
+    .image-panel { min-height: 320px; max-height: 420px; }
+
+    /* Mission grid */
+    .mission-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+
+    /* Values */
+    .values-container { padding: 5rem 3rem !important; }
+    .values-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+    /* Hero (about page) */
+    .hero { flex-direction: column !important; padding: 120px 5% 60px !important; gap: 2rem !important; }
+    .hero-image-wrap { order: -1; }
+    .blob-img { width: 280px !important; height: 340px !important; }
+
+    /* Insurance / therapy grids */
+    .pricing-grid,
+    .insurance-grid { grid-template-columns: 1fr 1fr !important; }
+
+    /* Individual therapy */
+    .therapy-split,
+    .two-col-split { grid-template-columns: 1fr !important; }
+  }
+
+  /* ══════════════════════════════════════
+     MOBILE  ≤ 768px
+  ══════════════════════════════════════ */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem !important; }
+
+    /* Hero */
+    .hero { padding: 100px 5% 50px !important; text-align: center; }
+    .slide-content { padding: 0 1.5rem; padding-top: 72px; max-width: 100%; }
+    .slide h1 { font-size: clamp(1.8rem, 7vw, 2.8rem) !important; }
+    .slide-sub { font-size: 1rem !important; }
+    .slide-body { display: none; }
+    .slide-actions { justify-content: flex-start; gap: 0.75rem; flex-direction: column; align-items: flex-start; }
+    .slide-dots { left: 1.5rem; }
+    .slide-nav { right: 1.5rem; }
+
+    /* About */
+    .about-content { padding: 3rem 1.5rem !important; }
+    .about-links { flex-direction: column; gap: 1rem; }
+    .about-image { min-height: 280px; }
+
+    /* Services */
+    .services { padding: 4rem 1.5rem !important; }
+    .services-grid { grid-template-columns: 1fr !important; }
+    .service-card { padding: 2rem 1.5rem !important; }
+
+    /* Specializations */
+    .spec-grid { grid-template-columns: 1fr 1fr !important; }
+    .specializations { padding: 4rem 1.5rem !important; }
+
+    /* Team highlight */
+    .team-content { padding: 3rem 1.5rem !important; }
+
+    /* Footer */
+    footer {
+      grid-template-columns: 1fr !important;
+      padding: 3rem 1.5rem 2rem !important;
+      gap: 2rem !important;
+    }
+    .footer-brand { grid-column: 1 !important; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+    /* Quote band */
+    .quote-band { padding: 2.5rem 1.5rem !important; }
+    .quote-band blockquote { font-size: 1.1rem !important; }
+
+    /* About page hero */
+    .hero h1 { font-size: clamp(2rem, 8vw, 3rem) !important; }
+    .blob-img { width: 220px !important; height: 280px !important; }
+
+    /* Page headers */
+    .page-header-content { padding: 2.5rem 1.5rem !important; }
+    .page-hero-content { padding: 2.5rem 1.5rem !important; }
+
+    /* Values */
+    .values-container { padding: 4rem 1.5rem !important; }
+    .values-grid { grid-template-columns: 1fr !important; }
+    .value-card { padding: 2.5rem 1.5rem !important; }
+
+    /* Contact */
+    .contact-sidebar { padding: 2.5rem 1.5rem !important; }
+    .contact-form-panel { padding: 2.5rem 1.5rem !important; }
+
+    /* Book appointment */
+    .form-panel { padding: 2.5rem 1.5rem !important; }
+    .image-panel { display: none; }
+
+    /* Insurance */
+    .pricing-grid,
+    .insurance-grid { grid-template-columns: 1fr !important; }
+    .page-hero-content { padding: 2.5rem 1.5rem !important; }
+
+    /* Team grid */
+    .team-section { padding: 3rem 1.5rem !important; }
+    .team-grid { grid-template-columns: 1fr !important; }
+    .hero-section-team { padding: 5rem 1.5rem 3rem !important; }
+
+    /* Individual therapy */
+    .therapy-section { padding: 3rem 1.5rem !important; }
+    .therapy-split { gap: 2rem !important; }
+
+    /* Mission */
+    .mission-section { padding: 5rem 1.5rem !important; }
+    .stat-row { grid-template-columns: 1fr 1fr !important; }
+
+    /* Stat boxes */
+    .stat-box h3 { font-size: 2rem !important; }
+
+    /* Section paddings */
+    section { max-width: 100vw; overflow-x: hidden; }
+  }
+
+  /* ══════════════════════════════════════
+     SMALL MOBILE  ≤ 480px
+  ══════════════════════════════════════ */
+  @media (max-width: 480px) {
+    .spec-grid { grid-template-columns: 1fr !important; }
+    .stat-row { grid-template-columns: 1fr !important; }
+    .slide-actions { flex-direction: column; }
+    .btn-primary, .btn-ghost, .btn-ghost-dark {
+      display: inline-block;
+      width: auto;
+    }
+    .nav-cta { padding: 8px 16px !important; font-size: 10px !important; }
+    .footer-bottom { font-size: 11px !important; }
+    .team-grid { gap: 1.5rem !important; }
+    .values-grid { gap: 1.5rem !important; }
+    .services-grid { gap: 1px !important; }
+  }
+
+  
+  /* Contact-specific fixes */
+  @media (max-width: 1024px) {
+    .contact-info-panel { padding: 4rem 3rem !important; }
+    .contact-form-panel { padding: 4rem 3rem !important; }
+  }
+  @media (max-width: 768px) {
+    .contact-info-panel { padding: 3rem 1.5rem !important; }
+    .contact-form-panel { padding: 3rem 1.5rem !important; }
+  }
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="icon.png" alt="Icon Logo" class="logo-icon" width="50" height="50">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="team.html">Our Team</a></li>
+    <li><a href="index.html">Clinical Services</a></li>
+    <li><a href="insurance.html">Insurance &amp; Price</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="book_appointment.html" class="nav-cta">Request Appointment</a></li>
+  </ul>
+
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="team.html">Our Team</a>
+  <a href="index.html#services">Clinical Services</a>
+  <a href="insurance.html">Insurance &amp; Price</a>
+  <a href="contact.html">Contact</a>
+  <a href="book_appointment.html" class="mobile-cta">Request Appointment</a>
+</div>
+
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="page-header-bg"></div>
+  <div class="page-header-lines"></div>
+  <div class="page-header-content">
+    <h1 class="fade-up fade-up-d1">Let's <em>connect</em></h1>
+    <div class="header-accent-line fade-up fade-up-d2"></div>
+    <p class="page-header-sub fade-up fade-up-d3">We're here to answer your questions and help you take the first step toward healing — at your own pace, in your own time.</p>
+  </div>
+</header>
+
+<!-- CONTACT BODY -->
+<div class="contact-body">
+
+  <!-- LEFT: INFO PANEL -->
+  <aside class="contact-info-panel">
+
+    <div class="info-block">
+      <p class="info-block-label">Reach Us</p>
+      <a href="mailto:contact@hrcounselingservices.com" class="contact-item">
+        <div class="contact-item-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5a7c5f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+          </svg>
+        </div>
+        <div class="contact-item-text">
+          <div class="contact-item-type">Email</div>
+          <div class="contact-item-value">contact@hrcounselingservices.com</div>
+        </div>
+      </a>
+      <a href="tel:5712102980" class="contact-item">
+        <div class="contact-item-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5a7c5f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.63 19.79 19.79 0 01.5 2 2 2 0 012.5.12h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.12 6.12l1.27-.85a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+        </div>
+        <div class="contact-item-text">
+          <div class="contact-item-type">Phone</div>
+          <div class="contact-item-value">(571) 210-2980</div>
+        </div>
+      </a>
+      <div class="contact-item">
+        <div class="contact-item-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5a7c5f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="22 17 13.5 8.5 8.5 13.5 2 7"/><polyline points="16 17 22 17 22 11"/>
+          </svg>
+        </div>
+        <div class="contact-item-text">
+          <div class="contact-item-type">Fax</div>
+          <div class="contact-item-value">(571) 406-1339</div>
+        </div>
+      </div>
+      <a href="https://www.instagram.com/hoperestored_counseling/" target="_blank" rel="noopener" class="contact-item">
+        <div class="contact-item-icon">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#5a7c5f" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+          </svg>
+        </div>
+        <div class="contact-item-text">
+          <div class="contact-item-type">Instagram</div>
+          <div class="contact-item-value">@hoperestored_counseling</div>
+        </div>
+      </a>
+    </div>
+
+    <div class="info-block">
+      <p class="info-block-label">Telehealth Sessions</p>
+      <div class="availability-card">
+        <h4>Session Availability</h4>
+        <div class="availability-row">
+          <span class="day">Monday – Friday</span>
+          <span class="time">9:00 AM – 6:00 PM</span>
+        </div>
+        <div class="availability-row">
+          <span class="day">Saturday – Sunday</span>
+          <span class="closed">Available upon request</span>
+        </div>
+        <div class="telehealth-note">
+          <div class="telehealth-dot"></div>
+          <span>All sessions conducted via secure telehealth platform</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-block">
+      <p class="info-block-label">States Served</p>
+      <p style="font-size:13.5px; color:var(--muted); margin-bottom:0.85rem;">We provide licensed telehealth therapy to adults across:</p>
+      <div class="states-served">
+        <span class="state-tag">Virginia</span>
+        <span class="state-tag">Maryland</span>
+        <span class="state-tag">Washington DC</span>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- RIGHT: FORM PANEL -->
+  <main class="contact-form-panel">
+    <div class="form-intro">
+      <p class="section-label">General Inquiry</p>
+      <h2>Send us a <em>message</em></h2>
+      <p>Use this form for general questions. If you're ready to begin therapy, please visit our <a href="book_appointment.html">Therapy Inquiry page</a> to request an appointment with one of our clinicians.</p>
+    </div>
+
+    <!-- Formspree global success message (shown by @formspree/ajax on success) -->
+    <div data-fs-success style="display:none;"><!-- handled by successMessage block below --></div>
+
+    <form class="contact-form" id="contactForm" novalidate>
+      <input type="hidden" name="_subject" value="New Contact Inquiry — Hope Restored Counseling Services" />
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name <span style="color:var(--sage)">*</span></label>
+          <input type="text" id="firstName" name="First Name" placeholder="Jane" required data-fs-field />
+          <span data-fs-error="First Name" style="color:#c0392b; font-size:12px; margin-top:4px;"></span>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name <span style="color:var(--sage)">*</span></label>
+          <input type="text" id="lastName" name="Last Name" placeholder="Doe" required data-fs-field />
+          <span data-fs-error="Last Name" style="color:#c0392b; font-size:12px; margin-top:4px;"></span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="email">Email Address <span style="color:var(--sage)">*</span></label>
+          <input type="email" id="email" name="email" placeholder="jane@email.com" required data-fs-field />
+          <span data-fs-error="email" style="color:#c0392b; font-size:12px; margin-top:4px;"></span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number <span style="color:var(--sage)">*</span></label>
+          <input type="tel" id="phone" name="Phone Number" placeholder="(555) 000-0000" required data-fs-field />
+          <span data-fs-error="Phone Number" style="color:#c0392b; font-size:12px; margin-top:4px;"></span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="subject">Subject</label>
+        <div class="select-wrap">
+          <select id="subject" name="Subject">
+            <option value="" disabled selected>Select a topic…</option>
+            <option>General Inquiry</option>
+            <option>Insurance & Billing</option>
+            <option>Individual Therapy</option>
+            <option>Group Therapy</option>
+            <option>Christian Counseling</option>
+            <option>Trauma-Informed Care</option>
+            <option>Life Transitions</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-divider"></div>
+
+      <div class="form-group">
+        <label for="message">Your Message <span style="color:var(--sage)">*</span></label>
+        <textarea id="message" name="Message" placeholder="Share a brief message or question — we'll respond within 1–2 business days…" required data-fs-field></textarea>
+        <span data-fs-error="Message" style="color:#c0392b; font-size:12px; margin-top:4px;"></span>
+      </div>
+
+      <div class="consent-block">
+        <input type="checkbox" id="consent" name="consent" required />
+        <label for="consent">
+          I understand this form is for general inquiries only and does not constitute a therapeutic relationship. By submitting, I agree to Hope Restored's <a href="https://www.hrcounselingservices.com/privacy-policy">Privacy Policy</a>.
+        </label>
+      </div>
+
+      <!-- Formspree form-level error (network / server errors) -->
+      <span data-fs-error style="display:block; color:#c0392b; font-size:13px; margin-bottom:1rem; padding:12px 16px; background:#fef2f2; border-radius:4px; border-left:3px solid #c0392b;"></span>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-submit" data-fs-submit-btn>Send Message</button>
+        <a href="book_appointment.html" class="btn-alt">Request Therapy →</a>
+      </div>
+    </form>
+
+    <div class="success-message" id="successMessage">
+      <div class="success-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"/>
+        </svg>
+      </div>
+      <h4>Thank you! Your message has been sent successfully.</h4>
+      <p>We'll be in touch within 1–2 business days. If your matter is urgent, please call us directly at <strong>(571) 210-2980</strong> or email <a href="mailto:contact@hrcounselingservices.com" style="color:var(--sage-deep);">contact@hrcounselingservices.com</a>.</p>
+    </div>
+  </main>
+</div>
+
+<!-- APPOINTMENT CTA STRIP -->
+<div class="appt-strip">
+  <div class="appt-strip-text">
+    <h3>Ready to begin your <em>healing journey?</em></h3>
+    <p>Our therapy inquiry form connects you directly with one of our licensed clinicians.</p>
+  </div>
+  <div class="appt-strip-actions">
+    <a href="book_appointment.html" class="btn-primary-light">Request an Appointment</a>
+    <a href="about.html" class="btn-ghost-light">Learn About Us</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">
+    <div class="logo">
+     
+      <div class="logo-text">
+        Hope Restored
+        <span>Counseling Services</span>
+      </div>
+    </div>
+    <p>Faith-integrated, evidence-based telehealth therapy for adults across Virginia, Maryland, and Washington DC.</p>
+    <div class="contact-info">
+      <div><a href="mailto:contact@hrcounselingservices.com">contact@hrcounselingservices.com</a></div>
+      <div>Phone: (571) 210-2980</div>
+      <div>Fax: (571) 406-1339</div>
+    </div>
+  </div>
+  <div>
+    <h4>Navigate</h4>
+    <ul>
+      <li><a href="about.html">About</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="team.html">Our Team</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Services</h4>
+    <ul>
+      <li><a href="index.html#services">Individual Therapy</a></li>
+      <li><a href="https://www.hrcounselingservices.com/adult-group-therapy-anxiety-depression-md">Group Therapy</a></li>
+      <li><a href="https://www.hrcounselingservices.com/christian-counseling-virginia-maryland">Christian Counseling</a></li>
+      <li><a href="https://www.hrcounselingservices.com/about-4-1">Trauma-Informed Care</a></li>
+      <li><a href="https://www.hrcounselingservices.com/womens-therapy-virginia-maryland-dc">Women's Issues</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Connect</h4>
+    <ul>
+      <li><a href="https://www.instagram.com/hoperestored_counseling/">Instagram</a></li>
+      <li><a href="book_appointment.html">Therapy Inquiry</a></li>
+      <li><a href="insurance.html">Insurance & Pricing</a></li>
+      <li><a href="https://www.hrcounselingservices.com/privacy-policy">Privacy Policy</a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <span>Hope Restored Counseling LLC ©2026 · All Rights Reserved</span>
+    <span>Virginia · Maryland · Washington DC</span>
+  </div>
+</footer>
+
+<script>
+  // ── @formspree/ajax CDN init ────────────────────────────────────────────────
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+
+  // Gate submission on the consent checkbox (not natively supported by the lib)
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    const consent = document.getElementById('consent');
+    if (!consent.checked) {
+      e.stopImmediatePropagation(); // prevent @formspree/ajax from firing
+      consent.style.outline = '2px solid #c0392b';
+      return;
+    }
+    consent.style.outline = '';
+  }, true); // capture phase so it runs before the library's listener
+
+  formspree('initForm', {
+    formElement: '#contactForm',
+    formId: 'mzdwjjrl',
+    // After a successful submission, reveal the branded success block
+    onSuccess: function() {
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('successMessage').classList.add('visible');
+    }
+  });
+
+  // Clear consent error highlight on change
+  document.getElementById('consent').addEventListener('change', function() {
+    this.style.outline = '';
+  });
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+
+<script>
+(function() {
+  // Hamburger toggle
+  var btn = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if (btn && mobileNav) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = mobileNav.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    document.addEventListener('click', function(e) {
+      if (!mobileNav.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+        mobileNav.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+    // Close on link click
+    mobileNav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        mobileNav.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+    // Mobile sub-menu toggle
+    mobileNav.querySelectorAll('.mobile-nav-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var sub = this.nextElementSibling;
+        if (sub) sub.classList.toggle('open');
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>

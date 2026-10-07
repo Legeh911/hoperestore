@@ -1,0 +1,1142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Therapy Inquiry | Hope Restored Counseling Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage: #4a7c6f;
+    --sage-light: #e8f2ef;
+    --sage-mid: #7aad9e;
+    --cream: #faf8f4;
+    --warm-gray: #6b6560;
+    --charcoal: #2c2825;
+    --border: rgba(74,124,111,0.18);
+    --radius: 6px;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(250,248,244,0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 0.5px solid var(--border);
+    padding: 0 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+
+  .logo-icon {
+    width: 200px;
+    height: 200px;
+  }
+
+  .logo-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--sage-deep);
+    line-height: 1.2;
+  }
+
+  .logo-text span {
+    display: block;
+    font-size: 11px;
+    font-weight: 400;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--sage); }
+
+  .nav-cta {
+    background: var(--sage);
+    color: #fff !important;
+    padding: 10px 22px;
+    border-radius: 2px;
+    letter-spacing: 0.1em;
+    font-size: 11px !important;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--sage-deep) !important; color: #fff !important; }
+
+  /* LAYOUT */
+  .page-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: calc(100vh - 72px);
+  }
+
+  /* IMAGE PANEL */
+  .image-panel {
+    position: relative;
+    overflow: hidden;
+    background: #2c3830;
+  }
+
+  .image-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.82;
+    display: block;
+  }
+
+  .image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(160deg, rgba(44,56,48,0.55) 0%, rgba(74,124,111,0.35) 100%);
+  }
+
+  .image-content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+    color: white;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    backdrop-filter: blur(8px);
+    border-radius: 100px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 1.25rem;
+  }
+
+  .badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #7aad9e;
+  }
+
+  .image-content h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.25;
+    margin-bottom: 1rem;
+    color: white;
+  }
+
+  .image-content p {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.82);
+    max-width: 340px;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .info-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .pill {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 100px;
+    padding: 5px 13px;
+    font-size: 12px;
+    color: rgba(255,255,255,0.9);
+    font-weight: 400;
+  }
+
+  /* FORM PANEL */
+  .form-panel {
+    background: #fff;
+    padding: 3.5rem 3.5rem 3.5rem 3rem;
+    overflow-y: auto;
+  }
+
+  .form-header { margin-bottom: 2.25rem; }
+
+  .form-header .eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .form-header .eyebrow::after {
+    content: '';
+    height: 1px;
+    width: 28px;
+    background: var(--sage-mid);
+    display: inline-block;
+  }
+
+  .form-header h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    color: var(--charcoal);
+    margin-bottom: 0.75rem;
+  }
+
+  .form-header p {
+    font-size: 14px;
+    color: var(--warm-gray);
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 420px;
+  }
+
+  /* CONTACT STRIP */
+  .contact-strip {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--sage-light);
+    border-radius: var(--radius);
+    padding: 12px 16px;
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--sage);
+  }
+
+  .contact-strip .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--sage);
+    font-weight: 500;
+  }
+
+  .contact-strip .contact-item svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+  /* FORM */
+  .section-label {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--warm-gray);
+    margin: 1.75rem 0 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-label:first-of-type { margin-top: 0; }
+
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .row.tri { grid-template-columns: 2fr 1fr 1fr; }
+  .col-full { grid-column: 1 / -1; }
+
+  .field { display: flex; flex-direction: column; gap: 5px; }
+
+  label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--charcoal);
+    letter-spacing: 0.02em;
+  }
+
+  label .req { color: var(--sage); margin-left: 2px; }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  input[type="date"],
+  select,
+  textarea {
+    width: 100%;
+    height: 40px;
+    padding: 0 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13.5px;
+    font-weight: 400;
+    color: var(--charcoal);
+    background: #fff;
+    border: 1.5px solid rgba(44,40,37,0.15);
+    border-radius: var(--radius);
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%236b6560'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 32px;
+    cursor: pointer;
+  }
+
+  textarea {
+    height: auto;
+    min-height: 80px;
+    padding: 10px 12px;
+    resize: vertical;
+  }
+
+  input:focus, select:focus, textarea:focus {
+    border-color: var(--sage);
+    box-shadow: 0 0 0 3px rgba(74,124,111,0.1);
+  }
+
+  input::placeholder, textarea::placeholder { color: #bab5b0; }
+
+  /* SMS CONSENT */
+  .consent-box {
+    background: var(--sage-light);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 16px;
+    margin-top: 1.5rem;
+  }
+
+  .consent-check {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+
+  .consent-check input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-top: 2px;
+    accent-color: var(--sage);
+    flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .consent-check label {
+    font-size: 12.5px;
+    font-weight: 400;
+    color: var(--warm-gray);
+    line-height: 1.6;
+    cursor: pointer;
+  }
+
+  .consent-box .fine-print {
+    font-size: 11.5px;
+    color: #9e9890;
+    line-height: 1.6;
+    padding-top: 8px;
+    border-top: 1px solid var(--border);
+  }
+
+  .consent-box .fine-print a { color: var(--sage); text-decoration: none; }
+
+  /* SUBMIT */
+  .submit-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  .btn-submit {
+    background: var(--sage);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 12px 32px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: background 0.2s, transform 0.15s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .btn-submit:hover { background: #3a6258; transform: translateY(-1px); }
+  .btn-submit:active { transform: translateY(0); }
+
+  .btn-submit svg { width: 14px; height: 14px; }
+
+  .submit-note {
+    font-size: 12px;
+    color: var(--warm-gray);
+    font-weight: 300;
+    line-height: 1.6;
+  }
+
+  /* SUCCESS STATE */
+  .success-state {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    gap: 1rem;
+    min-height: 400px;
+  }
+
+  .success-icon {
+    width: 64px;
+    height: 64px;
+    background: var(--sage-light);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .success-icon svg { width: 28px; height: 28px; stroke: var(--sage); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  .success-state h2 { font-family: 'Poppins', sans-serif; font-size: 1.7rem; font-weight: 400; color: var(--charcoal); }
+  .success-state p { font-size: 14px; color: var(--warm-gray); font-weight: 300; max-width: 340px; line-height: 1.7; }
+
+  /* FOOTER */
+  footer {
+    background: var(--charcoal);
+    color: rgba(255,255,255,0.65);
+    padding: 2rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12.5px;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer a { color: rgba(255,255,255,0.55); text-decoration: none; margin-left: 1.25rem; transition: color 0.2s; }
+  footer a:hover { color: var(--sage-mid); }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 0.2rem; }
+
+  @media (max-width: 900px) {
+    .page-split { grid-template-columns: 1fr; }
+    .image-panel { min-height: 340px; }
+    nav { padding: 0 1.5rem; }
+    .nav-links { display: none; }
+    .form-panel { padding: 2rem 1.5rem; }
+    .row { grid-template-columns: 1fr; }
+    .row.tri { grid-template-columns: 1fr; }
+    footer { padding: 1.5rem; flex-direction: column; align-items: flex-start; }
+  }
+
+  /* ═══════════════════════════════════════════════════
+     SHARED RESPONSIVE SYSTEM — All breakpoints
+     ═══════════════════════════════════════════════════ */
+
+  /* ── Hamburger button (hidden on desktop) ── */
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    width: 40px;
+    height: 40px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    z-index: 200;
+    flex-shrink: 0;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--charcoal, #2c2c2a);
+    transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* Mobile nav drawer */
+  .mobile-nav {
+    display: none;
+    position: fixed;
+    top: 72px;
+    left: 0; right: 0;
+    background: rgba(250,248,244,0.99);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid rgba(90,124,95,0.18);
+    padding: 1.5rem 2rem 2rem;
+    z-index: 999;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+    max-height: calc(100vh - 72px);
+    overflow-y: auto;
+  }
+
+  .mobile-nav.open { display: flex; }
+
+  .mobile-nav a,
+  .mobile-nav button.mobile-nav-trigger {
+    display: block;
+    padding: 0.85rem 0;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal, #2c2c2a);
+    text-decoration: none;
+    font-weight: 500;
+    border-bottom: 0.5px solid rgba(90,124,95,0.12);
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    text-align: left;
+    width: 100%;
+    font-family: inherit;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .mobile-nav a:hover,
+  .mobile-nav button.mobile-nav-trigger:hover { color: #5a7c5f; }
+
+  .mobile-nav .mobile-nav-sub {
+    padding-left: 1rem;
+    display: none;
+  }
+
+  .mobile-nav .mobile-nav-sub.open { display: block; }
+
+  .mobile-nav .mobile-nav-sub a {
+    font-size: 13px;
+    letter-spacing: 0.04em;
+    text-transform: none;
+    font-weight: 400;
+    color: var(--muted, #6b6b68);
+    padding: 0.55rem 0;
+  }
+
+  .mobile-nav .mobile-cta {
+    margin-top: 1.5rem;
+    display: block;
+    background: #5a7c5f;
+    color: #fff !important;
+    text-align: center;
+    padding: 13px 24px;
+    border-radius: 2px;
+    font-size: 12px !important;
+    letter-spacing: 0.1em;
+    border-bottom: none !important;
+  }
+
+  /* ══════════════════════════════════════
+     LARGE DESKTOP  ≥ 1400px
+  ══════════════════════════════════════ */
+  @media (min-width: 1400px) {
+    .services-grid { grid-template-columns: repeat(3, 1fr); }
+    .spec-grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  /* ══════════════════════════════════════
+     TABLET + SMALL LAPTOP  ≤ 1024px
+  ══════════════════════════════════════ */
+  @media (max-width: 1024px) {
+    /* Nav */
+    .nav-links { display: none !important; }
+    .hamburger { display: flex; }
+
+    /* Hero / about split */
+    .about {
+      grid-template-columns: 1fr !important;
+    }
+    .about-image {
+      min-height: 380px;
+    }
+    .about-content {
+      padding: 4rem 3rem !important;
+    }
+
+    /* Services 2-col */
+    .services { padding: 5rem 3rem !important; }
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    /* Spec grid 2-col */
+    .spec-grid {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    .specializations { padding: 5rem 3rem !important; }
+
+    /* Team highlight */
+    .team-highlight {
+      grid-template-columns: 1fr !important;
+    }
+    .team-image {
+      min-height: 340px;
+      order: -1;
+    }
+    .team-content {
+      padding: 4rem 3rem !important;
+    }
+
+    /* Footer */
+    footer {
+      grid-template-columns: 1fr 1fr !important;
+      padding: 4rem 3rem 2.5rem !important;
+    }
+    .footer-brand { grid-column: 1 / -1; }
+
+    /* Quote band */
+    .quote-band { padding: 3rem 3rem !important; }
+
+    /* Hero slider text */
+    .slide-content { padding: 0 5vw; padding-top: 72px; max-width: 640px; }
+
+    /* Page headers */
+    .page-header-content,
+    .page-hero-content { padding: 3rem !important; }
+
+    /* Contact body */
+    .contact-body { grid-template-columns: 1fr !important; }
+
+    /* Page split (book appointment) */
+    .page-split { grid-template-columns: 1fr !important; }
+    .image-panel { min-height: 320px; max-height: 420px; }
+
+    /* Mission grid */
+    .mission-grid { grid-template-columns: 1fr !important; gap: 2.5rem !important; }
+
+    /* Values */
+    .values-container { padding: 5rem 3rem !important; }
+    .values-grid { grid-template-columns: repeat(2, 1fr) !important; }
+
+    /* Hero (about page) */
+    .hero { flex-direction: column !important; padding: 120px 5% 60px !important; gap: 2rem !important; }
+    .hero-image-wrap { order: -1; }
+    .blob-img { width: 280px !important; height: 340px !important; }
+
+    /* Insurance / therapy grids */
+    .pricing-grid,
+    .insurance-grid { grid-template-columns: 1fr 1fr !important; }
+
+    /* Individual therapy */
+    .therapy-split,
+    .two-col-split { grid-template-columns: 1fr !important; }
+  }
+
+  /* ══════════════════════════════════════
+     MOBILE  ≤ 768px
+  ══════════════════════════════════════ */
+  @media (max-width: 768px) {
+    nav { padding: 0 1.25rem !important; }
+
+    /* Hero */
+    .hero { padding: 100px 5% 50px !important; text-align: center; }
+    .slide-content { padding: 0 1.5rem; padding-top: 72px; max-width: 100%; }
+    .slide h1 { font-size: clamp(1.8rem, 7vw, 2.8rem) !important; }
+    .slide-sub { font-size: 1rem !important; }
+    .slide-body { display: none; }
+    .slide-actions { justify-content: flex-start; gap: 0.75rem; flex-direction: column; align-items: flex-start; }
+    .slide-dots { left: 1.5rem; }
+    .slide-nav { right: 1.5rem; }
+
+    /* About */
+    .about-content { padding: 3rem 1.5rem !important; }
+    .about-links { flex-direction: column; gap: 1rem; }
+    .about-image { min-height: 280px; }
+
+    /* Services */
+    .services { padding: 4rem 1.5rem !important; }
+    .services-grid { grid-template-columns: 1fr !important; }
+    .service-card { padding: 2rem 1.5rem !important; }
+
+    /* Specializations */
+    .spec-grid { grid-template-columns: 1fr 1fr !important; }
+    .specializations { padding: 4rem 1.5rem !important; }
+
+    /* Team highlight */
+    .team-content { padding: 3rem 1.5rem !important; }
+
+    /* Footer */
+    footer {
+      grid-template-columns: 1fr !important;
+      padding: 3rem 1.5rem 2rem !important;
+      gap: 2rem !important;
+    }
+    .footer-brand { grid-column: 1 !important; }
+    .footer-bottom { flex-direction: column; gap: 0.5rem; text-align: center; }
+
+    /* Quote band */
+    .quote-band { padding: 2.5rem 1.5rem !important; }
+    .quote-band blockquote { font-size: 1.1rem !important; }
+
+    /* About page hero */
+    .hero h1 { font-size: clamp(2rem, 8vw, 3rem) !important; }
+    .blob-img { width: 220px !important; height: 280px !important; }
+
+    /* Page headers */
+    .page-header-content { padding: 2.5rem 1.5rem !important; }
+    .page-hero-content { padding: 2.5rem 1.5rem !important; }
+
+    /* Values */
+    .values-container { padding: 4rem 1.5rem !important; }
+    .values-grid { grid-template-columns: 1fr !important; }
+    .value-card { padding: 2.5rem 1.5rem !important; }
+
+    /* Contact */
+    .contact-sidebar { padding: 2.5rem 1.5rem !important; }
+    .contact-form-panel { padding: 2.5rem 1.5rem !important; }
+
+    /* Book appointment */
+    .form-panel { padding: 2.5rem 1.5rem !important; }
+    .image-panel { display: none; }
+
+    /* Insurance */
+    .pricing-grid,
+    .insurance-grid { grid-template-columns: 1fr !important; }
+    .page-hero-content { padding: 2.5rem 1.5rem !important; }
+
+    /* Team grid */
+    .team-section { padding: 3rem 1.5rem !important; }
+    .team-grid { grid-template-columns: 1fr !important; }
+    .hero-section-team { padding: 5rem 1.5rem 3rem !important; }
+
+    /* Individual therapy */
+    .therapy-section { padding: 3rem 1.5rem !important; }
+    .therapy-split { gap: 2rem !important; }
+
+    /* Mission */
+    .mission-section { padding: 5rem 1.5rem !important; }
+    .stat-row { grid-template-columns: 1fr 1fr !important; }
+
+    /* Stat boxes */
+    .stat-box h3 { font-size: 2rem !important; }
+
+    /* Section paddings */
+    section { max-width: 100vw; overflow-x: hidden; }
+  }
+
+  /* ══════════════════════════════════════
+     SMALL MOBILE  ≤ 480px
+  ══════════════════════════════════════ */
+  @media (max-width: 480px) {
+    .spec-grid { grid-template-columns: 1fr !important; }
+    .stat-row { grid-template-columns: 1fr !important; }
+    .slide-actions { flex-direction: column; }
+    .btn-primary, .btn-ghost, .btn-ghost-dark {
+      display: inline-block;
+      width: auto;
+    }
+    .nav-cta { padding: 8px 16px !important; font-size: 10px !important; }
+    .footer-bottom { font-size: 11px !important; }
+    .team-grid { gap: 1.5rem !important; }
+    .values-grid { gap: 1.5rem !important; }
+    .services-grid { gap: 1px !important; }
+  }
+
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="logo">
+    <img src="icon.png" alt="Icon Logo" class="logo-icon" width="50" height="50">
+  </a>
+
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="team.html">Our Team</a></li>
+    <li><a href="index.html">Clinical Services</a></li>
+    <li><a href="insurance.html">Insurance &amp; Price</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="book_appointment.html" class="nav-cta">Request Appointment</a></li>
+  </ul>
+
+  <button class="hamburger" id="hamburgerBtn" aria-label="Toggle menu" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<div class="mobile-nav" id="mobileNav">
+  <a href="index.html">Home</a>
+  <a href="about.html">About</a>
+  <a href="team.html">Our Team</a>
+  <a href="index.html#services">Clinical Services</a>
+  <a href="insurance.html">Insurance &amp; Price</a>
+  <a href="contact.html">Contact</a>
+  <a href="book_appointment.html" class="mobile-cta">Request Appointment</a>
+</div>
+
+
+<!-- MAIN -->
+<main class="page-split">
+
+  <!-- IMAGE SIDE -->
+  <div class="image-panel">
+    <img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=900&q=80&auto=format&fit=crop" alt="Peaceful therapy session environment" />
+    <div class="image-overlay"></div>
+    <div class="image-content">
+      <div class="badge">Accepting New Clients</div>
+      <h2>Begin your journey<br><em>toward healing.</em></h2>
+      <p>We offer compassionate, evidence-based therapy tailored to your unique needs — in a safe, confidential space where you are always seen and valued.</p>
+      <div class="info-pills">
+        <span class="pill">Free 15-Min Consultation</span>
+        <span class="pill">Insurance Accepted</span>
+        <span class="pill">Christian Counseling</span>
+        <span class="pill">Individual &amp; Group</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- FORM SIDE -->
+  <div class="form-panel">
+    <div id="formWrap">
+      <div class="form-header">
+        <div class="eyebrow">Therapy Inquiry</div>
+        <h1>Book a consultation</h1>
+        <p>Complete the form below to take the first step. We will reach out within 24–48 business hours to confirm your complimentary 15-minute consultation.</p>
+      </div>
+
+      <!-- Contact strip -->
+      <div class="contact-strip">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.89 9.11 19.79 19.79 0 01.82 0.5 2 2 0 012.81.18h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l.91-.91a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+          (571) 210-2980
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          contact@hrcounselingservices.com
+        </div>
+      </div>
+
+      <form id="inquiryForm" onsubmit="handleSubmit(event)">
+        <input type="hidden" name="_subject" value="New Therapy Inquiry — Hope Restored Counseling Services" />
+
+        <p class="section-label">Personal Information</p>
+
+        <div class="row">
+          <div class="field">
+            <label>First Name <span class="req">*</span></label>
+            <input type="text" name="First Name" placeholder="Jane" required data-fs-field />
+            <span data-fs-error="First Name" style="color:#c0392b; font-size:12px; margin-top:2px;"></span>
+          </div>
+          <div class="field">
+            <label>Last Name <span class="req">*</span></label>
+            <input type="text" name="Last Name" placeholder="Doe" required data-fs-field />
+            <span data-fs-error="Last Name" style="color:#c0392b; font-size:12px; margin-top:2px;"></span>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:14px;">
+          <div class="field">
+            <label>Date of Birth <span class="req">*</span></label>
+            <input type="date" name="Date of Birth" required data-fs-field />
+            <span data-fs-error="Date of Birth" style="color:#c0392b; font-size:12px; margin-top:2px;"></span>
+          </div>
+          <div class="field">
+            <label>Phone Number <span class="req">*</span></label>
+            <input type="tel" name="Phone Number" placeholder="(555) 000-0000" required data-fs-field />
+            <span data-fs-error="Phone Number" style="color:#c0392b; font-size:12px; margin-top:2px;"></span>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:14px;">
+          <div class="field col-full">
+            <label>Email Address <span class="req">*</span></label>
+            <input type="email" name="email" placeholder="jane@example.com" required style="height:40px;" data-fs-field />
+            <span data-fs-error="email" style="color:#c0392b; font-size:12px; margin-top:2px;"></span>
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:14px;">
+          <div class="field">
+            <label>Best Time to Contact</label>
+            <select name="Best Time to Contact">
+              <option value="" disabled selected>Select a time</option>
+              <option>Morning (8am – 12pm)</option>
+              <option>Afternoon (12pm – 4pm)</option>
+              <option>Evening (4pm – 7pm)</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>How Did You Hear About Us?</label>
+            <select name="How Did You Hear About Us">
+              <option value="" disabled selected>Select an option</option>
+              <option>Google Search</option>
+              <option>Psychology Today</option>
+              <option>Referral from Provider</option>
+              <option>Friend or Family</option>
+              <option>Social Media</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <p class="section-label">Address</p>
+
+        <div class="field">
+          <label>Street Address</label>
+          <input type="text" name="Street Address" placeholder="123 Main Street" />
+        </div>
+
+        <div class="field" style="margin-top:14px;">
+          <label>Street Address Line 2</label>
+          <input type="text" name="Street Address Line 2" placeholder="Apt, Suite, Unit (optional)" />
+        </div>
+
+        <div class="row tri" style="margin-top:14px;">
+          <div class="field">
+            <label>City</label>
+            <input type="text" name="City" placeholder="Rockville" />
+          </div>
+          <div class="field">
+            <label>State</label>
+            <select name="State">
+              <option value="" disabled selected>State</option>
+              <option>DC</option><option>MD</option><option>VA</option>
+              <option>AL</option><option>AK</option><option>AZ</option><option>AR</option>
+              <option>CA</option><option>CO</option><option>CT</option><option>DE</option>
+              <option>FL</option><option>GA</option><option>HI</option><option>ID</option>
+              <option>IL</option><option>IN</option><option>IA</option><option>KS</option>
+              <option>KY</option><option>LA</option><option>ME</option><option>MA</option>
+              <option>MI</option><option>MN</option><option>MS</option><option>MO</option>
+              <option>MT</option><option>NE</option><option>NV</option><option>NH</option>
+              <option>NJ</option><option>NM</option><option>NY</option><option>NC</option>
+              <option>ND</option><option>OH</option><option>OK</option><option>OR</option>
+              <option>PA</option><option>RI</option><option>SC</option><option>SD</option>
+              <option>TN</option><option>TX</option><option>UT</option><option>VT</option>
+              <option>WA</option><option>WV</option><option>WI</option><option>WY</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Zip Code</label>
+            <input type="text" name="Zip Code" placeholder="20850" />
+          </div>
+        </div>
+
+        <p class="section-label">Insurance &amp; Preferences</p>
+
+        <div class="row">
+          <div class="field">
+            <label>Payment Method <span class="req">*</span></label>
+            <select id="paymentSelect" name="Payment Method" onchange="toggleInsurance()" required>
+              <option value="" disabled selected>Select an option</option>
+              <option value="insurance">Using Insurance</option>
+              <option value="self">Self-Pay</option>
+            </select>
+          </div>
+          <div class="field" id="insuranceField" style="display:none;">
+            <label>Insurance Plan</label>
+            <select name="Insurance Plan">
+              <option value="" disabled selected>Select your plan</option>
+              <option>Aetna</option>
+              <option>BlueCross BlueShield</option>
+              <option>Cigna</option>
+              <option>Humana</option>
+              <option>Kaiser Permanente</option>
+              <option>United Healthcare</option>
+              <option>Medicaid</option>
+              <option>Medicare</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Insurance card email instruction -->
+        <div id="insuranceCardNote" style="display:none; margin-top:14px; padding:12px 16px; background:#e8f2ef; border-radius:6px; border-left:3px solid #4a7c6f; font-size:13px; color:#3a5c40; line-height:1.6;">
+          <strong>Insurance Card:</strong> Please email a photo of the front and back of your insurance card to <a href="mailto:contact@hrcounselingservices.com" style="color:#4a7c6f; font-weight:500;">contact@hrcounselingservices.com</a> after submitting this form.
+        </div>
+
+        <div class="field" style="margin-top:14px;">
+          <label>Preferred Therapist</label>
+          <select name="Preferred Therapist">
+            <option value="" disabled selected>No preference / Let us match you</option>
+            <option>Omowumi Akinlofa</option>
+            <option>Rae Pearl Canizares</option>
+            <option>Ciarra Fields</option>
+            <option>Rocio Mackie</option>
+            <option>Joy Turner</option>
+            <option>No preference</option>
+          </select>
+        </div>
+
+        <!-- SMS Consent -->
+        <div class="consent-box">
+          <div class="consent-check">
+            <input type="checkbox" id="smsConsent" name="SMS Consent" value="Yes, I agree to receive SMS" />
+            <label for="smsConsent">I agree to receive SMS messages from Hope Restored Counseling Services regarding appointments and scheduling. Reply STOP to opt out.</label>
+          </div>
+          <p class="fine-print">
+            Message frequency varies. Msg &amp; data rates may apply. Up to 4–6 messages/month. We do not sell or share your information. <a href="#">Privacy Policy</a>
+          </p>
+        </div>
+
+        <!-- Formspree form-level error (network / server errors) -->
+        <span data-fs-error style="display:block; color:#c0392b; font-size:13px; margin-top:1rem; padding:12px 16px; background:#fef2f2; border-radius:4px; border-left:3px solid #c0392b;"></span>
+
+        <!-- Submit -->
+        <div class="submit-row">
+          <button type="submit" class="btn-submit" id="inquirySubmitBtn" data-fs-submit-btn>
+            Submit Inquiry
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+          <p class="submit-note">We respond within<br>24–48 business hours.</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success -->
+    <div class="success-state" id="successState">
+      <div class="success-icon">
+        <svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+      </div>
+      <h2>Thank You!</h2>
+      <p>Your message has been sent successfully. A member of our team will contact you within 24 to 48 business hours to schedule your complimentary consultation.</p>
+      <p style="font-size:13px; color:#9e9890; margin-top:0.5rem;">For urgent matters, call <strong style="color:var(--sage);">(571) 210-2980</strong></p>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <span>Hope Restored Counseling LLC &copy;2026 &mdash; All Rights Reserved</span>
+  <div class="footer-links">
+    <a href="about.html">About</a>
+    <a href="index.html#services">Services</a>
+    <a href="team.html">Team</a>
+    <a href="contact.html">Contact</a>
+    <a href="#">Instagram</a>
+    <a href="#">Privacy Policy</a>
+  </div>
+</footer>
+
+<script>
+  // ── @formspree/ajax CDN init ────────────────────────────────────────────────
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+
+  formspree('initForm', {
+    formElement: '#inquiryForm',
+    formId: 'mzdwjjrl',
+    onSuccess: function() {
+      document.getElementById('formWrap').style.display = 'none';
+      var s = document.getElementById('successState');
+      s.style.display = 'flex';
+    }
+  });
+
+  // Show/hide insurance plan field and email note
+  function toggleInsurance() {
+    var sel = document.getElementById('paymentSelect');
+    var field = document.getElementById('insuranceField');
+    var note = document.getElementById('insuranceCardNote');
+    var isInsurance = sel.value === 'insurance';
+    field.style.display = isInsurance ? 'flex' : 'none';
+    note.style.display = isInsurance ? 'block' : 'none';
+  }
+
+  // handleSubmit is still called by the form's onsubmit; let @formspree/ajax take over
+  function handleSubmit(e) { /* handled by @formspree/ajax */ }
+</script>
+<script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+
+<script>
+(function() {
+  // Hamburger toggle
+  var btn = document.getElementById('hamburgerBtn');
+  var mobileNav = document.getElementById('mobileNav');
+  if (btn && mobileNav) {
+    btn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = mobileNav.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      btn.setAttribute('aria-expanded', isOpen);
+      document.body.style.overflow = isOpen ? 'hidden' : '';
+    });
+    document.addEventListener('click', function(e) {
+      if (!mobileNav.contains(e.target) && e.target !== btn && !btn.contains(e.target)) {
+        mobileNav.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+    });
+    // Close on link click
+    mobileNav.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', function() {
+        mobileNav.classList.remove('open');
+        btn.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      });
+    });
+    // Mobile sub-menu toggle
+    mobileNav.querySelectorAll('.mobile-nav-trigger').forEach(function(trigger) {
+      trigger.addEventListener('click', function(e) {
+        e.stopPropagation();
+        var sub = this.nextElementSibling;
+        if (sub) sub.classList.toggle('open');
+      });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
